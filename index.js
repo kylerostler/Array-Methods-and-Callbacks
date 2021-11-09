@@ -46,14 +46,14 @@ Use the higher-order function called getYears to do the following:
 // 2 param array and getfinalscb
 function getYears(array, getFinalscb) {
     // map over results of getFinalscb
-    const years = array.map(function(item){
+    const years = getFinalscb(array).map(function(item){
         return item.Year;
     });
     // use map to get an array with the data that has been filtered
     return years;
 }
 
-console.log('task 3', getYears(fifaData, getFinals);
+console.log('task 3', getYears(fifaData, getFinals));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -66,13 +66,14 @@ Use the higher-order function getWinners to do the following:
 // compare goals
 function getWinners(array, getFinalscb) {
     // if else statement using map with a conditional if home team goals > away team goals then we want the home team name else we want away team name
-    const  winners = array.map(function(item){
-        if(array['Home Team Goals'] > array['Away Team Goals']){
-            return array['Home Team Name'];
+    const  winners = getFinalscb(array).map(function(item){
+        if(item['Home Team Goals'] > item['Away Team Goals']){
+            return item['Home Team Name'];
         }else{
-            return array['Away Team Name'];
+            return item['Away Team Name'];
         };
     })
+    return winners;
 }
 
 console.log('task 4', getWinners(fifaData, getFinals))
