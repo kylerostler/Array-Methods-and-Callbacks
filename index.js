@@ -29,10 +29,14 @@ hint - you should be looking at the stage key inside of the objects
 // receive an array as the parameter - note this will be fifa data as the argument
 function getFinals(array) {
    // you can use filter here and stage === final
-
+    const finalTeams = array.filter(function(item){
+        return item.Stage === "Final";
+    });
+    return finalTeams;
 }
 
-
+console.log('task 2');
+// console.log('task 2', getFinals(fifaData));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function called getYears to do the following: 
@@ -43,9 +47,14 @@ Use the higher-order function called getYears to do the following:
 function getYears(array, getFinalscb) {
     /* code here */
     // map over results of getFinalscb
+    const years = array.map(getFinalscb(item){
+        return item.Year; 
+    });
     // use map to get an array with the data that has been filtered
+    return years;
 }
 
+console.log('task 3', getYears(fifaData, getFinals));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
