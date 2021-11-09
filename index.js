@@ -45,16 +45,15 @@ Use the higher-order function called getYears to do the following:
 3. Return an array called years containing all of the years in the getFinals data set*/
 // 2 param array and getfinalscb
 function getYears(array, getFinalscb) {
-    /* code here */
     // map over results of getFinalscb
-    const years = array.map(getFinalscb(item){
-        return item.Year; 
+    const years = array.map(function(item){
+        return item.Year;
     });
     // use map to get an array with the data that has been filtered
     return years;
 }
 
-console.log('task 3', getYears(fifaData, getFinals));
+console.log('task 3', getYears(fifaData, getFinals);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -66,11 +65,17 @@ Use the higher-order function getWinners to do the following:
 // 2 param array and getFinalscb
 // compare goals
 function getWinners(array, getFinalscb) {
-    /* code here */
     // if else statement using map with a conditional if home team goals > away team goals then we want the home team name else we want away team name
+    const  winners = array.map(function(item){
+        if(array['Home Team Goals'] > array['Away Team Goals']){
+            return array['Home Team Name'];
+        }else{
+            return array['Away Team Name'];
+        };
+    })
 }
 
-
+console.log('task 4', getWinners(fifaData, getFinals))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
