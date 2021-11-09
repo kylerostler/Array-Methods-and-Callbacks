@@ -93,8 +93,8 @@ function getWinnersByYear(array, getFinalscb, getYearscb, getWinnerscb) {
     // use map over one array and grab each item then use the index to grab the item in the other array
     const winners = getWinnerscb(array, getFinalscb);
     const years = getYearscb(array, getFinalscb);
-    const winnersByYear = winners.map(function(item){
-        return `In ${years.item}, ${winners.item} won the world cup!`
+    const winnersByYear = winners.map(function(item, index){
+        return `In ${years[index]}, ${item} won the world cup!`;
     });
     return winnersByYear;
 }
@@ -113,11 +113,15 @@ Use the higher order function getAverageGoals to do the following:
 // parameters getFinalscb
 function getAverageGoals(getFinalscb) {
    // use .reduce to add up all the goals of home and away team
+   const averageGoals = getFinalscb.reduce(function(accumulator, item){
+    return accumulator + item['Home Team Goals'] + item['Away Team Goals'];
+   },0)
    // divide that number by the length of the array
+   return (averageGoals / getFinalscb.length).toFixed(2);
    // round to 2 decimal places **hint look up toFixed()
 }
 
-// getAverageGoals(getFinalscb(fifaData));
+console.log('task 6', getAverageGoals(getFinals(fifaData)));
 
 
 /// 🥅 STRETCH 🥅 ///
