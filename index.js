@@ -90,11 +90,16 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 // 4 parameters array, getFinalscb, getYearscb, getWinnerscb
 function getWinnersByYear(array, getFinalscb, getYearscb, getWinnerscb) {
-    /* code here */
     // use map over one array and grab each item then use the index to grab the item in the other array
+    const winners = getWinnerscb(array, getFinalscb);
+    const years = getYearscb(array, getFinalscb);
+    const winnersByYear = winners.map(function(item){
+        return `In ${years.item}, ${winners.item} won the world cup!`
+    });
+    return winnersByYear;
 }
 
-
+console.log('task 5', getWinnersByYear(fifaData, getFinals, getYears, getWinners));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
@@ -107,7 +112,6 @@ Use the higher order function getAverageGoals to do the following:
 */
 // parameters getFinalscb
 function getAverageGoals(getFinalscb) {
-   /* code here */
    // use .reduce to add up all the goals of home and away team
    // divide that number by the length of the array
    // round to 2 decimal places **hint look up toFixed()
